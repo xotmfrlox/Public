@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="spms.dao.ProjectDao"> 
+  <resultMap type="project" id="projectResultMap">
+  <id column="PNO" property="no"/>
+    <result column="PNAME"    property="title"/>
+    <result column="CONTENT"  property="content"/>
+    <result column="SYS_DATE" property="startDate" javaType="java.sql.Date"/>
+    <result column="END_DATE" property="endDate" javaType="java.sql.Date"/>
+    <result column="STATE"    property="state"/>
+    <result column="CRE_DATE" property="createdDate" javaType="java.sql.Date"/>
+    <result column="TAGS"     property="tags"/>
+  </resultMap>
+  
+  <select id="selectList" parameterType="map" resultMap="projectResultMap">
+  select PNO, PNAME, SYS_DATE, END_DATE, STATE
+    from PROJECTS
+  </select>
+  
+  <insert id="insert" parameterType="project">
+  insert into PROJECTS(pname,content,sys_date,end_date,state,cre_date,tags)
+  values (#{title},#{content},#{startDate},#{endDate},0,now(),#{tags})
+  </insert>
+  
+  <select id="selectOne" parameterType="int" resultMap="projectResultMap">
+  select pno, pname, content, sys_date, end_Date, state, cre_Date, tags from projects where pno=#{value}
+  </select>
+  
+  <update id="update" parameterType="project">
+  update PROJECTS set
+  pname=#{title},
+  content=#{content},
+  sys_date=#{startDate},
+  end_Date=#{endDate},
+  state=#{state},
+  tags=#{tags}
+  where pno=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+  delete from PROJECTS where pno=#{value}
+  </delete>
+</mapper>
