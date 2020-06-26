@@ -173,7 +173,7 @@ public class MySqlProjectDao implements ProjectDao {
 		try {
 			connection = ds.getConnection();
 			stmt = connection.prepareStatement("UPDATE projects SET"
-					+ " pname=?,"
+					+ "pname=?,"
 					+ "content=?,"
 					+ "sys_date=?, "
 					+ "end_date=?,"

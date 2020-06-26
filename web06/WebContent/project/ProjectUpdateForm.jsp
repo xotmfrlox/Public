@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <!doctype html>
 <html>
@@ -14,8 +14,8 @@
 		<form action='update.do' method='post'>
 		번호: <input id='no' type='text' name='no' value="${project.no}" readonly><br>
 		제목: <input id = 'title' type='text' name='name' value="${project.title}"><br>
-		<%-- <li><label for="title">제목</label> <input id="title" type='text'
-				name='title' size="50" value="${project.title}"></li> --%>
+		<li><label for="title">제목</label> <input id="title" type='text'
+				name='title' size="50" value="${project.title}"></li>
 		내용: <textarea id="content" name='content' rows="5" cols="40">${project.content}</textarea><br>
 		시작일: <input id  ='startDate' type='text' name='startDate' value="${project.startDate}"><br>
 		종료일: <input id ='endDate' type='text' name='endDate' value="${project.endDate}"><br>
@@ -28,9 +28,9 @@
 		</form>
 
 </body>
-</html>
+</html> --%>
 
-<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -54,7 +54,7 @@ label {
 </style> -->
 </head>
 <body>
-	<jsp:include page="/Header.jsp" />
+	<%-- <jsp:include page="/Header.jsp" /> --%>
 	<h1>프로젝트 정보</h1>
 	<form action='update.do' method='post'>
 		<ul>
@@ -84,6 +84,6 @@ label {
 		<input type='button' value='삭제' onclick='location.href="delete.do?no=${project.no}";'>
 		<input type='button' value='취소' onclick='location.href="list.do"'>
 	</form>
-	<jsp:include page="/Tail.jsp" />
+	<%-- <jsp:include page="/Tail.jsp" /> --%>
 </body>
-</html> --%>
+</html>

@@ -125,7 +125,11 @@ public class MySqlMemberDao implements MemberDao {
 		PreparedStatement stmt = null;
 		try {
 			connection = ds.getConnection();
-			stmt = connection.prepareStatement("UPDATE MEMBERS SET EMAIL=?,MNAME=?,MOD_DATE=now() WHERE MNO=?");
+			stmt = connection.prepareStatement("UPDATE MEMBERS SET"
+					+ "EMAIL=?,"
+					+ "MNAME=?,"
+					+ "MOD_DATE=now()"
+					+ "WHERE MNO=?");
 			stmt.setString(1, member.getEmail());
 			stmt.setString(2, member.getName());
 			stmt.setInt(3, member.getNo());
